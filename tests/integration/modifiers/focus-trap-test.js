@@ -49,11 +49,7 @@ module('Integration | Modifier | focus-trap', function(hooks) {
         }),
         'should have called with the element and options'
       );
-      assert.equal(
-        this.instance.activate.callCount,
-        0,
-        'should not have called'
-      );
+      assert.equal(this.instance.activate.callCount, 1, 'should have called');
     });
 
     test('activation with initialFocus as selector', async function(assert) {

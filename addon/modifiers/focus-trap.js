@@ -45,11 +45,11 @@ export default setModifierManager(
 
       state.focusTrap = createFocusTrap(element, state.focusTrapOptions);
 
-      if (isActive) {
+      if (state.isActive) {
         state.focusTrap.activate();
       }
 
-      if (isPaused) {
+      if (state.isPaused) {
         state.focusTrap.pause();
       }
     },
