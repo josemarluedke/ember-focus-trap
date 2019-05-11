@@ -1,7 +1,7 @@
 {
   "name": "ember-focus-trap",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "A Ember modifier to trap your focus.",
   "keywords": [
     "ember-addon"
   ],
