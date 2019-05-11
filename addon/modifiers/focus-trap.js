@@ -6,8 +6,8 @@ export default setModifierManager(
     createModifier() {
       return {
         focusTrapOptions: undefined,
-        isActive: undefined,
-        isClosed: undefined,
+        isActive: true,
+        isPaused: false,
         focusTrap: undefined,
         previouslyFocusedElement: undefined
       };
@@ -21,8 +21,13 @@ export default setModifierManager(
       }
     ) {
       state.focusTrapOptions = focusTrapOptions || {};
-      state.isActive = isActive;
-      state.isPaused = isPaused;
+      if (typeof isActive !== 'undefined') {
+        state.isActive = isActive;
+      }
+
+      if (typeof isPaused !== 'undefined') {
+        state.isPaused = isPaused;
+      }
 
       let createFocusTrap = FocusTrap;
       // Private to allow mocking FocusTrap in tests
@@ -69,8 +74,14 @@ export default setModifierManager(
 
       // Update state
       state.focusTrapOptions = focusTrapOptions;
-      state.isActive = params.isActive;
-      state.isPaused = params.isPaused;
+
+      if (typeof params.isActive !== 'undefined') {
+        state.isActive = params.isActive;
+      }
+
+      if (typeof params.isPaused !== 'undefined') {
+        state.isPaused = params.isPaused;
+      }
     },
 
     destroyModifier({ focusTrap, focusTrapOptions, previouslyFocusedElement }) {
