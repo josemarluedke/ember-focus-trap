@@ -13,6 +13,7 @@
 # misc
 /coverage/
 !.*
+.prettierrc.js
 
 # ember-try
 /.node_modules.ember-try/
