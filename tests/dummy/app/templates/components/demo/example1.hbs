@@ -1,0 +1,33 @@
+{{#docs-demo as |demo|}}
+  {{#demo.example name="docs-demo-basic.hbs"}}
+    <p>
+      <button onclick={{action this.activate}} class="button">
+        Activate trap
+      </button>
+    </p>
+
+    <div
+      class="trap {{if this.isActive "is-active"}}"
+      {{focus-trap
+        isActive=this.isActive
+        focusTrapOptions=(hash escapeDeactivates=false)
+      }}
+    >
+      <p>
+        Here is a focus trap
+        <a href="#">with</a>
+        <a href="#">some</a>
+        <a href="#">focusable</a>
+        parts.
+      </p>
+      <p>
+        <button onclick={{action this.deactivate}} class="button">
+          Deactivate trap
+        </button>
+      </p>
+    </div>
+  {{/demo.example}}
+
+  {{demo.snippet "docs-demo-basic.hbs" label="template.hbs"}}
+  {{demo.snippet "docs-demo-basic.js" label="component.js"}}
+{{/docs-demo}}
