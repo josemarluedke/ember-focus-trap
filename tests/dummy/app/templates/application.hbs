@@ -31,6 +31,37 @@
 
 
 
+<div>
+  <p>
+    <button onclick={{action (mut this.isEnabled2) true}}>
+      activate trap
+    </button>
+  </p>
+
+
+  {{#if this.isEnabled2}}
+    <div
+      class="trap is-active"
+      {{focus-trap isActive=true}}
+    >
+      <p>
+        Here is a focus trap
+        <a href="#">with</a>
+        <a href="#">some</a>
+        <a href="#">focusable</a>
+        parts.
+      </p>
+      <p>
+        <button onclick={{action (mut this.isEnabled2) false}}>
+          deactivate trap
+        </button>
+      </p>
+    </div>
+  {{/if}}
+</div>
+
+
+
 
 
 
