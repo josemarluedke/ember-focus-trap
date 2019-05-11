@@ -2,7 +2,7 @@
 
 ## Installation
 
-* `git clone <repository-url>`
+* `git clone https://github.com/josemarluedke/ember-focus-trap.git`
 * `cd ember-focus-trap`
 * `yarn install`
 
