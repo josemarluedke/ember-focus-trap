@@ -1,6 +1,17 @@
-ember-focus-trap
-==============================================================================
-A Ember modifier to trap your focus.
+<p align="center">
+  <img width="640" src="https://repository-images.githubusercontent.com/186169303/b236b180-7408-11e9-9c6d-e58e1fd21700">
+</p>
+
+<p align="center">
+  <a href="https://travis-ci.com/josemarluedke/ember-focus-trap"><img src="https://travis-ci.com/josemarluedke/ember-focus-trap.svg?branch=master" alt="Build Status"></a>
+  <a href="https://emberobserver.com/addons/ember-focus-trap"><img src="https://emberobserver.com/badges/ember-focus-trap.svg" alt="Ember Observer Score"></a>
+  <a href="https://badge.fury.io/js/ember-focus-trap"><img src="https://badge.fury.io/js/ember-focus-trap.svg" alt="NPM version"></a>
+</p>
+
+
+**Ember Focus Trap**: A Ember modifier to trap your focus.
+
+[View the docs here](https://josemarluedke.github.io/ember-focus-trap/).
 
 We use [focus-trap](https://github.com/davidtheclark/focus-trap) as a lower-level implementation.
 It is super lightweight and has minimal dependencies.
