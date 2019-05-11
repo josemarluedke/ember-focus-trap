@@ -13,6 +13,7 @@
 /.eslintignore
 /.eslintrc.js
 /.gitignore
+/.git
 /.template-lintrc.js
 /.travis.yml
 /.watchmanconfig
@@ -29,3 +30,4 @@
 /.node_modules.ember-try/
 /bower.json.ember-try
 /package.json.ember-try
+/config/addon-docs.js
