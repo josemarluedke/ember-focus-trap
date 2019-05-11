@@ -1,6 +1,5 @@
 ember-focus-trap
 ==============================================================================
-
 A Ember modifier to trap your focus.
 
 
@@ -30,7 +29,7 @@ Usage
 
 
 ```hbs
-<div {{focus-trap isActive=true}}>
+<div {{focus-trap}}>
   <p>
     Here is a focus trap
     <a href="#">with</a>
@@ -49,7 +48,6 @@ Usage
 ```hbs
 <div
   {{focus-trap
-    isActive=true
     focusTrapOptions=(hash
       onDeactivate=(action this.myFunction)
       initialFocus="#initial-focusee"
@@ -64,7 +62,7 @@ Usage
     parts.
   </p>
   <p>
-    <button>Some button</button>
+    <button id="initial-focusee">Some button</button>
   </p>
 </div>
 ```
