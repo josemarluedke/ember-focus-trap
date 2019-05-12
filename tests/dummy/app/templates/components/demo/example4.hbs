@@ -9,12 +9,11 @@
     <div
       class="trap {{if this.isActive "is-active"}}"
       tabindex="-1"
-      id="my-container"
       {{focus-trap
         isActive=this.isActive
+        shouldSelfFocus=true
         focusTrapOptions=(hash
           onDeactivate=(action this.deactivate)
-          initialFocus="#my-container"
           clickOutsideDeactivates=true
         )
       }}

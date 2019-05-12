@@ -27,7 +27,8 @@ $brand-secondary: #ffd723;
     background-color: rgba($brand-secondary, 0.3);
   }
 
-  *:focus {
+  *:focus,
+  &:focus {
     outline: 5px solid rgba($brand-primary, 0.6);
   }
 
