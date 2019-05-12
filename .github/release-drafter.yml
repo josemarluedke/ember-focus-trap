@@ -28,7 +28,6 @@ change-template: '- $TITLE (#$NUMBER) @$AUTHOR'
 no-changes-template: '- No changes'
 template: |
   $CHANGES
-
   ***
 
   ### Contributors
