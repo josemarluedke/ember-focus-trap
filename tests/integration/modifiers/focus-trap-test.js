@@ -78,6 +78,30 @@ module('Integration | Modifier | focus-trap', function(hooks) {
       );
     });
 
+    test('when passing shouldSelfFocus', async function(assert) {
+      await render(
+        hbs`<div
+            data-test
+            {{focus-trap
+              shouldSelfFocus=true
+              _createFocusTrap=this.fakeFocusTrap
+            }}
+          >
+            <button>Some button</button>
+          </div>`
+      );
+      assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
+
+      assert.ok(
+        this.fakeFocusTrap.calledWithExactly(find('[data-test]'), {
+          initialFocus: find('[data-test]'),
+          returnFocusOnDeactivate: true
+        }),
+        'should have called with the element and options'
+      );
+      assert.equal(this.instance.activate.callCount, 1, 'should have called');
+    });
+
     test('when passing isActive as false', async function(assert) {
       await render(
         hbs`<div
