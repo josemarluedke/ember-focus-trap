@@ -8,6 +8,7 @@ export default setModifierManager(
         focusTrapOptions: undefined,
         isActive: true,
         isPaused: false,
+        shouldSelfFocus: false,
         focusTrap: undefined,
         previouslyFocusedElement: undefined
       };
@@ -17,7 +18,13 @@ export default setModifierManager(
       state,
       element,
       {
-        named: { isActive, isPaused, focusTrapOptions, _createFocusTrap }
+        named: {
+          isActive,
+          isPaused,
+          shouldSelfFocus,
+          focusTrapOptions,
+          _createFocusTrap
+        }
       }
     ) {
       state.focusTrapOptions = focusTrapOptions || {};
@@ -27,6 +34,13 @@ export default setModifierManager(
 
       if (typeof isPaused !== 'undefined') {
         state.isPaused = isPaused;
+      }
+      if (
+        state.focusTrapOptions &&
+        typeof state.focusTrapOptions.initialFocus === 'undefined' &&
+        shouldSelfFocus
+      ) {
+        state.focusTrapOptions.initialFocus = element;
       }
 
       let createFocusTrap = FocusTrap;

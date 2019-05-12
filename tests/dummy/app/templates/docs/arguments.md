@@ -19,3 +19,14 @@ you can use this option.
 Type: Boolean, optional
 
 If you would like to pause or unpause the focus trap (see [focus-trap's documentation](https://github.com/davidtheclark/focus-trap#focustrappause)), toggle this argument.
+
+## shouldSelfFocus
+Type: Boolean, optional
+
+If you would like to initially focus in the element in which the modifier is
+being applied.
+
+**Important:** For the focus in the container to work, you must make it focusable. You can
+accomplish that by adding `tabindex="-1"`.
+
+<aside>This options has no effect if something is passed in `initialFocus` under `focusTrapOptions`.</aside>

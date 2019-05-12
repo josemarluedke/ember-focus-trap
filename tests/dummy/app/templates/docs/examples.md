@@ -18,11 +18,18 @@ When this focus trap activates, focus jumps to a specific, manually specified el
 
 {{component "demo/example3"}}
 
-## Focus on the container
+## Self focus on the container
 
-Initial focus is on the containing element, which has tabindex="-1"; so when you tab through the trap focus does not return to the container.
+Initial focus is on the containing element, which has `tabindex="-1"`; so when you tab through the trap focus does not return to the container.
 
 In this example, clicking outside of the container will deactivate the focus
 trap. Note the option `clickOutsideDeactivates`.
+
+This example uses the modifier argument `shouldSelfFocus`. The same could be
+achieved by adding an `id` to the container and passing the selector to `initialFocus`
+in `focusTrapOptions`. However, `shouldSelfFocus` is a short hand for passing
+the element directly to `focusTrapOptions`.
+
+<aside>The option `shouldSelfFocus` is ignored if something is passed in `initialFocus`.</aside>
 
 {{component "demo/example4"}}
