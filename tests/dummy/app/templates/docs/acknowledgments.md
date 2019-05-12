@@ -1,11 +1,10 @@
 # Acknowledgments
 
-This addon was only possible by the work from
-[@davidtheclark](https://github.com/davidtheclark). He created the underlying
-library that we use in this modifier.
+Thanks to [@davidtheclark](https://github.com/davidtheclark) for creating [focus-trap](https://github.com/davidtheclark/focus-trap).
+This addon was only made possible by his work on the underlying library we use.
 
-I also used his demos for inspiration and his documentation to guide the docs
-you are reading now. In addition, I used his React component to implement this modifier.
-
+I acknowledgments that most of the examples and wording of this documentation
+was inspired/copied from his work. In addition, I used his React component to
+guide the implementation of the modifier.
 
 Thanks to all the Ember folks as well for making modifiers possible.

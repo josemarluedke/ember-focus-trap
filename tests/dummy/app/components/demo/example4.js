@@ -1,4 +1,4 @@
-// BEGIN-SNIPPET demo-example3.js
+// BEGIN-SNIPPET demo-example4.js
 import Component from '@ember/component';
 import { action } from '@ember/object';
 
