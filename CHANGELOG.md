@@ -1,3 +1,22 @@
+v0.1.1
+
+## :memo: Documentation
+
+- Add more examples to documentation and reword a few things (#8) @josemarluedke
+
+
+
+***
+
+### Contributors
+
+@josemarluedke
+
+***
+
+For full changes, see the [comparison between v0.1.0 and v0.2.0](https://github.com/josemarluedke/ember-focus-trap/compare/v0.1.0...v0.2.0)
+
+
 v0.1.0
 
 ## :zap: New Feature
