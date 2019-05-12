@@ -6853,10 +6853,10 @@ else if(Array.isArray(s))for(u=0,l=s.length;u<l;u++)o(i,s[u].name,s[u].value)
 else for(c in s)e(c,s[c])
 return i}("",e).join("&").replace(/%20/g,"+")}function o(e,t,r){void 0!==r&&(null===r&&(r=""),r="function"==typeof r?r():r,e[e.length]=encodeURIComponent(t)+"="+encodeURIComponent(r))}e.default=i}),define("ember-focus-trap/modifiers/focus-trap",["exports","focus-trap"],function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
-var r=Ember._setModifierManager(function(){return{createModifier:function(){return{focusTrapOptions:void 0,isActive:!0,isPaused:!1,focusTrap:void 0,previouslyFocusedElement:void 0}},installModifier:function(e,r,n){var i=n.named,o=i.isActive,a=i.isPaused,s=i.focusTrapOptions,u=i._createFocusTrap
-e.focusTrapOptions=s||{},void 0!==o&&(e.isActive=o),void 0!==a&&(e.isPaused=a)
-var l=t.default
-u&&(l=u),!1!==e.focusTrapOptions.returnFocusOnDeactivate&&(e.focusTrapOptions.returnFocusOnDeactivate=!0),"undefined"!=typeof document&&(e.previouslyFocusedElement=document.activeElement),e.focusTrap=l(r,e.focusTrapOptions),e.isActive&&e.focusTrap.activate(),e.isPaused&&e.focusTrap.pause()},updateModifier:function(e,t){var r=t.named,n=r.focusTrapOptions||{}
+var r=Ember._setModifierManager(function(){return{createModifier:function(){return{focusTrapOptions:void 0,isActive:!0,isPaused:!1,shouldSelfFocus:!1,focusTrap:void 0,previouslyFocusedElement:void 0}},installModifier:function(e,r,n){var i=n.named,o=i.isActive,a=i.isPaused,s=i.shouldSelfFocus,u=i.focusTrapOptions,l=i._createFocusTrap
+e.focusTrapOptions=u||{},void 0!==o&&(e.isActive=o),void 0!==a&&(e.isPaused=a),e.focusTrapOptions&&void 0===e.focusTrapOptions.initialFocus&&s&&(e.focusTrapOptions.initialFocus=r)
+var c=t.default
+l&&(c=l),!1!==e.focusTrapOptions.returnFocusOnDeactivate&&(e.focusTrapOptions.returnFocusOnDeactivate=!0),"undefined"!=typeof document&&(e.previouslyFocusedElement=document.activeElement),e.focusTrap=c(r,e.focusTrapOptions),e.isActive&&e.focusTrap.activate(),e.isPaused&&e.focusTrap.pause()},updateModifier:function(e,t){var r=t.named,n=r.focusTrapOptions||{}
 if(e.isActive&&!r.isActive){var i=void 0===n.returnFocusOnDeactivate
 e.focusTrap.deactivate({returnFocus:i})}else!e.isActive&&r.isActive&&e.focusTrap.activate()
 e.isPaused&&!r.isPaused?e.focusTrap.unpause():!e.isPaused&&r.isPaused&&e.focusTrap.pause(),e.focusTrapOptions=n,void 0!==r.isActive&&(e.isActive=r.isActive),void 0!==r.isPaused&&(e.isPaused=r.isPaused)},destroyModifier:function(e){var t=e.focusTrap,r=e.focusTrapOptions,n=e.previouslyFocusedElement
