@@ -30,4 +30,11 @@ $brand-secondary: #ffd723;
   *:focus {
     outline: 5px solid rgba($brand-primary, 0.6);
   }
+
+  input {
+    border: 0.0625rem solid #ccc;
+    padding: 0.25rem;
+    margin: 0.125rem;
+    border-radius: 0.25rem;
+  }
 }

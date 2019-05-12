@@ -1,5 +1,5 @@
 {{#docs-demo as |demo|}}
-  {{#demo.example name="demo-example3.hbs"}}
+  {{#demo.example name="demo-example4.hbs"}}
     <p>
       <button onclick={{action this.activate}} class="button">
         Activate trap
@@ -8,11 +8,14 @@
 
     <div
       class="trap {{if this.isActive "is-active"}}"
+      tabindex="-1"
+      id="my-container"
       {{focus-trap
         isActive=this.isActive
         focusTrapOptions=(hash
           onDeactivate=(action this.deactivate)
-          initialFocus="#initial-focusee"
+          initialFocus="#my-container"
+          clickOutsideDeactivates=true
         )
       }}
     >
@@ -22,10 +25,6 @@
         <a href="javascript:void(0)">some</a>
         <a href="javascript:void(0)">focusable</a>
         parts.
-
-        <br>
-        Initially focused input
-        <input type="text" id="initial-focusee">
       </p>
       <p>
         <button onclick={{action this.deactivate}} class="button">
@@ -35,6 +34,6 @@
     </div>
   {{/demo.example}}
 
-  {{demo.snippet "demo-example3.hbs" label="template.hbs"}}
-  {{demo.snippet "demo-example3.js" label="component.js"}}
+  {{demo.snippet "demo-example4.hbs" label="template.hbs"}}
+  {{demo.snippet "demo-example4.js" label="component.js"}}
 {{/docs-demo}}
