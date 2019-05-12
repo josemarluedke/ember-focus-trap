@@ -3,7 +3,10 @@
 
 module.exports = function(deployTarget) {
   let ENV = {
-    build: {}
+    build: {},
+    git: {
+      repo: 'git@github.com:josemarluedke/ember-focus-trap.git'
+    }
     // include other plugin configuration that applies to all deploy targets here
   };
 
