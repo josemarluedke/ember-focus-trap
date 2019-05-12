@@ -1,3 +1,20 @@
+v0.2.0
+
+## :zap: New Feature
+
+- Add shouldSelfFocus option (#9) @josemarluedke
+
+***
+
+### Contributors
+
+@josemarluedke
+
+***
+
+For full changes, see the [comparison between v0.1.1 and v0.2.0](https://github.com/josemarluedke/ember-focus-trap/compare/v0.1.1...v0.2.0)
+
+
 v0.1.1
 
 ## :memo: Documentation
