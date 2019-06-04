@@ -6,6 +6,9 @@ categories:
   - title: ':zap: New Feature'
     label: 'Type: Feature'
 
+  - title: ':boom: Breaking Change'
+    label: 'Type: Breaking Change'
+
   - title: ':rocket: Enhancement'
     label: 'Type: Enhancement'
 
