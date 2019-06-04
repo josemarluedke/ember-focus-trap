@@ -1,3 +1,19 @@
+v0.3.0
+
+- Upgrade to Ember v3.10 & Drop node v6 (#11) @josemarluedke
+
+
+***
+
+### Contributors
+
+@josemarluedke
+
+***
+
+For full changes, see the [comparison between v0.2.0 and v0.3.0](https://github.com/josemarluedke/ember-focus-trap/compare/v0.2.0...v0.3.0)
+
+
 v0.2.0
 
 ## :zap: New Feature
