@@ -1,8 +1,10 @@
-import { setModifierManager } from '@ember/modifier';
+import { setModifierManager, capabilities } from '@ember/modifier';
 import FocusTrap from 'focus-trap';
 
 export default setModifierManager(
   () => ({
+    capabilities: capabilities('3.13'),
+
     createModifier() {
       return {
         focusTrapOptions: undefined,
