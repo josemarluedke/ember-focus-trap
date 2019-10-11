@@ -5,6 +5,14 @@ $brand-secondary: #ffd723;
   --brand-primary: #{$brand-primary};
 }
 
+.docs-bg-brand {
+  background-color: $brand-primary !important;
+}
+
+.docs-text-brand {
+  color: $brand-primary !important;
+}
+
 .button {
   background-color: #3d4852;
   color: white;
