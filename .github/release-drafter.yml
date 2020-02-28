@@ -3,9 +3,6 @@
 name-template: v$NEXT_MINOR_VERSION
 tag-template: v$NEXT_MINOR_VERSION
 categories:
-  - title: ':zap: New Feature'
-    label: 'Type: Feature'
-
   - title: ':boom: Breaking Change'
     label: 'Type: Breaking Change'
 
@@ -14,6 +11,9 @@ categories:
 
   - title: ':bug: Bug Fix'
     label: 'Type: Bug'
+
+  - title: ':nail_care: Refactor'
+    label: 'Type: Refactor'
 
   - title: ':memo: Documentation'
     label: 'Type: Documentation'
@@ -31,6 +31,7 @@ change-template: '- $TITLE (#$NUMBER) @$AUTHOR'
 no-changes-template: '- No changes'
 template: |
   $CHANGES
+
   ***
 
   ### Contributors

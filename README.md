@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="https://travis-ci.com/josemarluedke/ember-focus-trap"><img src="https://travis-ci.com/josemarluedke/ember-focus-trap.svg?branch=master" alt="Build Status"></a>
+  <a href="https://github.com/josemarluedke/ember-focus-trap/actions"><img src="https://github.com/josemarluedke/frontile/workflows/CI/badge.svg" alt="Build Status"></a>
   <a href="https://emberobserver.com/addons/ember-focus-trap"><img src="https://emberobserver.com/badges/ember-focus-trap.svg" alt="Ember Observer Score"></a>
   <a href="https://badge.fury.io/js/ember-focus-trap"><img src="https://badge.fury.io/js/ember-focus-trap.svg" alt="NPM version"></a>
 </p>
