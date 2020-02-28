@@ -1,7 +1,7 @@
 {{#docs-demo as |demo|}}
   {{#demo.example name="demo-example2.hbs"}}
     <p>
-      <button type="button" onclick={{action this.activate}} class="button">
+      <button type="button" {{on "click" this.activate}} class="button">
         Activate trap
       </button>
     </p>
@@ -11,7 +11,7 @@
         class="trap is-active"
         {{focus-trap
           focusTrapOptions=(hash
-            onDeactivate=(action this.deactivate)
+            onDeactivate=this.deactivate
           )
         }}
       >
@@ -23,7 +23,7 @@
           parts.
         </p>
         <p>
-          <button type="button" onclick={{action this.deactivate}} class="button">
+          <button type="button" {{on "click" this.deactivate}} class="button">
             Deactivate trap
           </button>
         </p>
