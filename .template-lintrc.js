@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = {
-  extends: 'recommended',
+  extends: 'octane',
   rules: {
-    'no-implicit-this': true
+    'no-curly-component-invocation': { allow: ['docs-demo', 'demo.example'] }
   }
 };

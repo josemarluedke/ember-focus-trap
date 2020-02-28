@@ -2,15 +2,15 @@
 
 <div class="docs-container docs-md">
   <section class="docs-max-w-md docs-mx-auto docs-pb-8">
-    {{component "index/content"}}
+    <Index::Content />
 
     <div class="docs-my-16 docs-text-right">
-      {{#link-to
-        "docs"
+      <LinkTo
+        @route="docs"
         class="docs-bg-grey-darkest hover:docs-bg-black docs-text-white docs-py-2 docs-px-4 docs-no-underline docs-rounded"
-      }}
-        Read the docs →
-      {{/link-to}}
+      >
+      Read the docs →
+      </LinkTo>
     </div>
   </section>
 </div>
