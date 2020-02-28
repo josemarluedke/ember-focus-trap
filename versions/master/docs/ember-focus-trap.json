@@ -1,1 +1,1 @@
-{"jsonapi":{"version":"1.0"},"data":{"type":"project","id":"ember-focus-trap","attributes":{"name":"ember-focus-trap","version":"0.3.0","navigationIndex":[]},"relationships":{"modules":{"data":[]}}}}
+{"jsonapi":{"version":"1.0"},"data":{"type":"project","id":"ember-focus-trap","attributes":{"name":"ember-focus-trap","version":"0.3.2","navigationIndex":[]},"relationships":{"modules":{"data":[]}}}}
