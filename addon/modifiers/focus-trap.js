@@ -1,5 +1,5 @@
 import { setModifierManager, capabilities } from '@ember/modifier';
-import FocusTrap from 'focus-trap';
+import { createFocusTrap as CreateFocusTrap } from 'focus-trap';
 
 export default setModifierManager(
   () => ({
@@ -45,8 +45,8 @@ export default setModifierManager(
         state.focusTrapOptions.initialFocus = element;
       }
 
-      let createFocusTrap = FocusTrap;
       // Private to allow mocking FocusTrap in tests
+      let createFocusTrap = CreateFocusTrap;
       if (_createFocusTrap) {
         createFocusTrap = _createFocusTrap;
       }
