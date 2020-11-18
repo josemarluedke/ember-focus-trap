@@ -1,3 +1,4 @@
+'use strict';
 const prettierrc = require('./.prettierrc.js');
 
 module.exports = {
