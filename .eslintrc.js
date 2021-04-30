@@ -6,19 +6,19 @@ module.exports = {
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: 'module'
+    sourceType: 'module',
   },
   plugins: ['ember', 'prettier'],
   extends: [
     'eslint:recommended',
     'plugin:ember/recommended',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
   ],
   env: {
     browser: true,
   },
   rules: {
-    'prettier/prettier': ['error', prettierrc]
+    'prettier/prettier': ['error', prettierrc],
   },
   overrides: [
     // node files

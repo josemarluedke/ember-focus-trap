@@ -1,18 +1,19 @@
 // BEGIN-SNIPPET demo-example2.js
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 export default class Demo extends Component {
-  isActive = false;
+  @tracked isActive = false;
 
   @action
   activate() {
-    this.set('isActive', true);
+    this.isActive = true;
   }
 
   @action
   deactivate() {
-    this.set('isActive', false);
+    this.isActive = false;
   }
 }
 // END-SNIPPET
