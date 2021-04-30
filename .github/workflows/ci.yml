@@ -84,4 +84,6 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Deploy
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
         run: yarn ember deploy production

@@ -25,6 +25,12 @@ module.exports = function (deployTarget) {
     // configure other plugins for production deploy target here
   }
 
+  ENV['git-ci'] = {
+    userName: 'Tomster',
+    userEmail: 'tomster@emberjs.com',
+    deployKey: process.env.DEPLOY_KEY,
+  };
+
   // Note: if you need to build some configuration asynchronously, you can return
   // a promise that resolves with the ENV object instead of returning the
   // ENV object synchronously.
