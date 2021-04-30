@@ -13,7 +13,6 @@
 # misc
 /coverage/
 !.*
-.prettierrc.js
 .eslintcache
 
 # ember-try
