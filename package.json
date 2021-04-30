@@ -5,6 +5,7 @@
   "keywords": [
     "ember-addon"
   ],
+  "homepage": "https://josemarluedke.github.io/ember-focus-trap",
   "repository": "https://github.com/josemarluedke/ember-focus-trap",
   "license": "MIT",
   "author": "Josemar Luedke <josemarluedke@gmail.com>",
@@ -32,9 +33,11 @@
     "focus-trap": "^6.2.0"
   },
   "devDependencies": {
-    "@ember/optional-features": "^2.0.0",
+    "@ember/optional-features": "^1.3.0",
     "@ember/test-helpers": "^2.2.5",
     "@embroider/test-setup": "^0.37.0",
+    "@glimmer/component": "^1.0.0",
+    "@glimmer/tracking": "^1.0.0",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
     "ember-cli": "~3.26.1",
@@ -79,8 +82,10 @@
   "engines": {
     "node": ">= 10.*"
   },
+  "ember": {
+    "edition": "octane"
+  },
   "ember-addon": {
     "configPath": "tests/dummy/config"
-  },
-  "homepage": "https://josemarluedke.github.io/ember-focus-trap"
+  }
 }
