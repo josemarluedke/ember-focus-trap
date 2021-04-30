@@ -12,7 +12,7 @@ export default setModifierManager(
         isPaused: false,
         shouldSelfFocus: false,
         focusTrap: undefined,
-        previouslyFocusedElement: undefined
+        previouslyFocusedElement: undefined,
       };
     },
 
@@ -25,8 +25,8 @@ export default setModifierManager(
           isPaused,
           shouldSelfFocus,
           focusTrapOptions,
-          _createFocusTrap
-        }
+          _createFocusTrap,
+        },
       }
     ) {
       state.focusTrapOptions = focusTrapOptions || {};
@@ -113,7 +113,7 @@ export default setModifierManager(
       ) {
         previouslyFocusedElement.focus();
       }
-    }
+    },
   }),
   class FocusTrapModifier {}
 );

@@ -6,8 +6,8 @@ class Router extends AddonDocsRouter {
   rootURL = config.rootURL;
 }
 
-Router.map(function() {
-  docsRoute(this, function() {
+Router.map(function () {
+  docsRoute(this, function () {
     this.route('installation');
     this.route('arguments');
     this.route('examples');

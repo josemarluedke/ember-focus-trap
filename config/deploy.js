@@ -1,12 +1,12 @@
 /* eslint-env node */
 'use strict';
 
-module.exports = function(deployTarget) {
+module.exports = function (deployTarget) {
   let ENV = {
     build: {},
     git: {
-      repo: 'git@github.com:josemarluedke/ember-focus-trap.git'
-    }
+      repo: 'git@github.com:josemarluedke/ember-focus-trap.git',
+    },
     // include other plugin configuration that applies to all deploy targets here
   };
 
