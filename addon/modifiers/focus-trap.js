@@ -3,7 +3,7 @@ import { createFocusTrap as CreateFocusTrap } from 'focus-trap';
 
 export default setModifierManager(
   () => ({
-    capabilities: capabilities('3.13'),
+    capabilities: capabilities('3.22'),
 
     createModifier() {
       return {

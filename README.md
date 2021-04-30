@@ -8,7 +8,6 @@
   <a href="https://badge.fury.io/js/ember-focus-trap"><img src="https://badge.fury.io/js/ember-focus-trap.svg" alt="NPM version"></a>
 </p>
 
-
 **Ember Focus Trap**: A Ember modifier to trap your focus.
 
 [View the docs here](https://josemarluedke.github.io/ember-focus-trap/).
@@ -22,28 +21,21 @@ There may come a time when you find it important to trap focus within a DOM node
 
 Please read the [focus-trap](https://github.com/davidtheclark/focus-trap) documentation to understand what a focus trap is, what happens when a focus trap is activated, and what happens when one is deactivated.
 
-Compatibility
-------------------------------------------------------------------------------
+## Compatibility
 
-* Ember.js v3.16 or above
-* Ember CLI v2.13 or above
-* Node.js v10 or above
+- Ember.js v3.22 or above
+- Ember CLI v2.13 or above
+- Node.js v10 or above
 
-
-Installation
-------------------------------------------------------------------------------
+## Installation
 
 ```
 ember install ember-focus-trap
 ```
 
-
-Usage
-------------------------------------------------------------------------------
-
+## Usage
 
 [See demos and read the documentation here](https://josemarluedke.github.io/ember-focus-trap).
-
 
 ```hbs
 <div {{focus-trap}}>
@@ -84,14 +76,10 @@ Usage
 </div>
 ```
 
-
-Contributing
-------------------------------------------------------------------------------
+## Contributing
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
 
-
-License
-------------------------------------------------------------------------------
+## License
 
 This project is licensed under the [MIT License](LICENSE.md).
