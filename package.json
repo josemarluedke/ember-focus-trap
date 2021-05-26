@@ -26,6 +26,7 @@
     "test:ember-compatibility": "ember try:each"
   },
   "dependencies": {
+    "@embroider/macros": "^0.41.0",
     "ember-auto-import": "^1.11.2",
     "ember-cli-babel": "^7.26.3",
     "ember-modifier-manager-polyfill": "^1.2.0",

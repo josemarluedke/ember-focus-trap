@@ -1,9 +1,14 @@
 import { setModifierManager, capabilities } from '@ember/modifier';
 import { createFocusTrap as CreateFocusTrap } from 'focus-trap';
+import { dependencySatisfies, macroCondition } from '@embroider/macros';
 
 export default setModifierManager(
   () => ({
-    capabilities: capabilities('3.22'),
+    capabilities: capabilities(
+      macroCondition(dependencySatisfies('ember-source', '^3.22.0'))
+        ? '3.22'
+        : '3.13'
+    ),
 
     createModifier() {
       return {
