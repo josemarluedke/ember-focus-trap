@@ -29,7 +29,8 @@ export default setModifierManager(
         },
       }
     ) {
-      state.focusTrapOptions = focusTrapOptions || {};
+      // treat the original focusTrapOptions as immutable, so do a shallow copy here
+      state.focusTrapOptions = { ...focusTrapOptions } || {};
       if (typeof isActive !== 'undefined') {
         state.isActive = isActive;
       }
