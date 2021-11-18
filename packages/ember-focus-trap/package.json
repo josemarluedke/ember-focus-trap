@@ -15,10 +15,6 @@
   ],
   "scripts": {
     "build": "rollup --config",
-    "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
-    "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
-    "lint:hbs": "ember-template-lint .",
-    "lint:hbs:fix": "ember-template-lint . --fix",
     "start": "rollup --config --watch",
     "test": "echo 'Addon does not have tests, run tests in test-app'",
     "prepare": "yarn build"
@@ -33,11 +29,8 @@
   "devDependencies": {
     "@babel/core": "7.16.0",
     "@babel/plugin-proposal-class-properties": "7.16.0",
-    "@babel/plugin-proposal-decorators": "7.16.0",
-    "@babel/plugin-syntax-decorators": "7.16.0",
     "@embroider/addon-dev": "0.47.2",
     "@rollup/plugin-babel": "5.3.0",
-    "babel-eslint": "10.1.0",
     "npm-run-all": "4.1.5",
     "rollup": "2.60.0"
   },

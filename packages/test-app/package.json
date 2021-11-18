@@ -28,6 +28,7 @@
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
     "ember-auto-import": "^2.2.4",
+    "ember-focus-trap": "^0.7.0",
     "ember-cli": "~3.28.4",
     "ember-cli-babel": "^7.26.6",
     "ember-cli-dependency-checker": "^3.2.0",
@@ -58,8 +59,5 @@
   },
   "ember": {
     "edition": "octane"
-  },
-  "dependencies": {
-    "ember-focus-trap": "^0.7.0"
   }
 }

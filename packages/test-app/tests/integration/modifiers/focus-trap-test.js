@@ -3,7 +3,9 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, find } from '@ember/test-helpers';
 import sinon from 'sinon';
-let noop = () => {};
+let noop = () => {
+  // empty
+};
 
 module('Integration | Modifier | focus-trap', function (hooks) {
   setupRenderingTest(hooks);
@@ -13,7 +15,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
       activate: sinon.fake(),
       deactivate: sinon.fake(),
       pause: sinon.fake(),
-      unpause: sinon.fake(),
+      unpause: sinon.fake()
     };
 
     const fakeFocusTrap = sinon.fake.returns(instance);
@@ -45,7 +47,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
       assert.ok(
         this.fakeFocusTrap.calledWithExactly(find('[data-test]'), {
           onDeactivate: noop,
-          returnFocusOnDeactivate: true,
+          returnFocusOnDeactivate: true
         }),
         'should have called with the element and options'
       );
@@ -72,7 +74,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
         this.fakeFocusTrap.calledWithExactly(find('[data-test]'), {
           onDeactivate: noop,
           initialFocus: '#initial-focusee',
-          returnFocusOnDeactivate: true,
+          returnFocusOnDeactivate: true
         }),
         'should have called with the element and options'
       );
@@ -95,7 +97,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
       assert.ok(
         this.fakeFocusTrap.calledWithExactly(find('[data-test]'), {
           initialFocus: find('[data-test]'),
-          returnFocusOnDeactivate: true,
+          returnFocusOnDeactivate: true
         }),
         'should have called with the element and options'
       );
@@ -117,7 +119,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
       assert.ok(
         this.fakeFocusTrap.calledWithExactly(find('[data-test]'), {
-          returnFocusOnDeactivate: true,
+          returnFocusOnDeactivate: true
         }),
         'should have called with the element and options'
       );
@@ -281,7 +283,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
       assert.ok(
         this.fakeFocusTrap.calledWithExactly(find('[data-test]'), {
-          returnFocusOnDeactivate: true,
+          returnFocusOnDeactivate: true
         }),
         'should have called with the element and options'
       );
@@ -316,7 +318,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
       assert.ok(
         this.fakeFocusTrap.calledWithExactly(find('[data-test]'), {
-          returnFocusOnDeactivate: false,
+          returnFocusOnDeactivate: false
         }),
         'should have called with the element and options'
       );

@@ -26,8 +26,6 @@ jobs:
         run: yarn install
       - name: Lint JS
         run: yarn lint:js
-      - name: Lint HBS
-        run: yarn lint:hbs
       - name: Test
         run: yarn test
 
@@ -61,3 +59,4 @@ jobs:
         env:
           EMBER_TRY_SCENARIO: ${{ matrix.ember-try-scenario }}
         run: yarn ember try:one $EMBER_TRY_SCENARIO
+        working-directory: packages/test-app
