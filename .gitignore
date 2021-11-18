@@ -1,12 +1,13 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
+.DS_Store
 
 # compiled output
 /dist/
 /tmp/
 
 # dependencies
-/bower_components/
 /node_modules/
+/packages/*/node_modules/
 
 # misc
 /.env*
