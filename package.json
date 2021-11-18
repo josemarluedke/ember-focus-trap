@@ -26,8 +26,8 @@
     "test:ember-compatibility": "ember try:each"
   },
   "dependencies": {
-    "@embroider/macros": "^0.41.0",
-    "ember-auto-import": "^1.11.2",
+    "@embroider/macros": "^0.47.2",
+    "ember-auto-import": "^2.2.3",
     "ember-cli-babel": "^7.26.3",
     "ember-modifier-manager-polyfill": "^1.2.0",
     "focus-trap": "^6.4.0"
@@ -78,7 +78,8 @@
     "prettier": "^2.2.1",
     "qunit": "^2.14.1",
     "qunit-dom": "^1.6.0",
-    "sass": "^1.32.12"
+    "sass": "^1.32.12",
+    "webpack": "^5.64.0"
   },
   "engines": {
     "node": ">= 10.*"
