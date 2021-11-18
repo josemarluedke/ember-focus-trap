@@ -5,7 +5,7 @@ import { dependencySatisfies, macroCondition } from '@embroider/macros';
 export default setModifierManager(
   () => ({
     capabilities: capabilities(
-      macroCondition(dependencySatisfies('ember-source', '^3.22.0'))
+      macroCondition(dependencySatisfies('ember-source', '^3.22.0 || >= 4.0'))
         ? '3.22'
         : '3.13'
     ),
