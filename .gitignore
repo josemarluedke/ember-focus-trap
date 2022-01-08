@@ -5,6 +5,8 @@
 /dist/
 /tmp/
 
+packages/**/dist/
+
 # dependencies
 /node_modules/
 /packages/*/node_modules/
