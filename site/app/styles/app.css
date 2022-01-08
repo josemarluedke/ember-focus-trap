@@ -1,0 +1,83 @@
+/* purgecss start ignore */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+
+/* purgecss end ignore */
+
+@import 'tailwindcss/utilities';
+
+/* purgecss start ignore */
+@import './highlight.css';
+@import './docfy-demo.css';
+
+.remark-code-title {
+  @apply py-2 px-4 bg-gray-900 border-b border-gray-800 text-white rounded-t-lg mt-5 text-sm;
+}
+
+.remark-code-title + .prose pre:first-child {
+  @apply rounded-t-none;
+}
+
+.prose h2,
+.prose h3,
+.prose h4,
+.docfy-demo__description__header__title {
+  & > a {
+    @apply ml-6;
+
+    &::before {
+      content: '#';
+      @apply text-primary-600 dark:text-primary-400 -ml-6 pr-2 absolute opacity-100;
+    }
+
+    @screen lg {
+      @apply ml-0;
+
+      &::before {
+        @apply opacity-0 pr-1;
+      }
+    }
+  }
+  &:hover {
+    & > a::before {
+      @apply opacity-100;
+    }
+  }
+}
+
+.button {
+  background-color: #3d4852;
+  color: white;
+  padding: 0.65rem 1.2rem;
+  border: 0.0625rem solid #3d4852;
+  border-radius: 0.25rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+
+  &:focus {
+    outline: 5px solid rgba(255, 215, 35, 0.6);
+  }
+}
+
+.trap {
+  border: 1px solid rgba(255, 215, 35, 0.5);
+  border-radius: 0.25rem;
+  padding: 1em 2em;
+
+  &.is-active {
+    background-color: rgba(255, 215, 35, 0.3);
+  }
+
+  *:focus,
+  &:focus {
+    outline: 5px solid rgba(255, 215, 35, 0.6);
+  }
+
+  input {
+    border: 0.0625rem solid #ccc;
+    padding: 0.25rem;
+    margin: 0.125rem;
+    border-radius: 0.25rem;
+  }
+}
+
+/* purgecss end ignore */

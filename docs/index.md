@@ -1,3 +1,7 @@
+---
+order: 1
+---
+
 # What it does?
 
 Please read the [focus-trap](https://github.com/davidtheclark/focus-trap) documentation to understand what a focus trap is, what happens when a focus trap is activated, and what happens when one is deactivated.
@@ -19,4 +23,4 @@ you can't tab to elements out of the box.
   When a focus trap is active, the box will be highlighted.
 </aside>
 
-{{component "demo/example1"}}
+<Demo::Example1 />
