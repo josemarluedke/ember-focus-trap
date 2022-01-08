@@ -5,7 +5,7 @@ let cap;
 try {
   cap = capabilities('3.22');
 } catch {
-  cap = capabilities('3.16');
+  cap = capabilities('3.13');
 }
 
 export default setModifierManager(() => {
