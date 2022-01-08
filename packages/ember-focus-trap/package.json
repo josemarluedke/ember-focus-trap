@@ -22,7 +22,6 @@
   "dependencies": {
     "@embroider/addon-shim": "^0.49.0",
     "ember-auto-import": "^2.2.4",
-    "ember-modifier-manager-polyfill": "^1.2.0",
     "focus-trap": "^6.7.1"
   },
   "devDependencies": {
