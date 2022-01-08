@@ -4,19 +4,15 @@
 
 # compiled output
 /dist/
-packages/*/dist/
 /tmp/
 
 # dependencies
 /bower_components/
 /node_modules/
-/packages/*/node_modules/
 
 # misc
 /coverage/
 !.*
-.prettierrc.js
-.*/
 .eslintcache
 
 # ember-try
