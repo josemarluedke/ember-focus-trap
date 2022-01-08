@@ -1,14 +1,16 @@
 import { setModifierManager, capabilities } from '@ember/modifier';
 import { createFocusTrap as CreateFocusTrap } from 'focus-trap';
-import { dependencySatisfies, macroCondition } from '@embroider/macros';
 
-export default setModifierManager(
-  () => ({
-    capabilities: capabilities(
-      macroCondition(dependencySatisfies('ember-source', '^3.22.0 || >= 4.0'))
-        ? '3.22'
-        : '3.13'
-    ),
+let cap;
+try {
+  cap = capabilities('3.22');
+} catch {
+  cap = capabilities('3.16');
+}
+
+export default setModifierManager(() => {
+  return {
+    capabilities: cap,
 
     createModifier() {
       return {
@@ -120,6 +122,5 @@ export default setModifierManager(
         previouslyFocusedElement.focus();
       }
     }
-  }),
-  class FocusTrapModifier {}
-);
+  };
+}, class FocusTrapModifier {});
