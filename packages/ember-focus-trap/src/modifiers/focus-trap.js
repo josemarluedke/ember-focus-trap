@@ -18,8 +18,7 @@ export default setModifierManager(() => {
         isActive: true,
         isPaused: false,
         shouldSelfFocus: false,
-        focusTrap: undefined,
-        previouslyFocusedElement: undefined
+        focusTrap: undefined
       };
     },
 
@@ -63,10 +62,6 @@ export default setModifierManager(() => {
         state.focusTrapOptions.returnFocusOnDeactivate = true;
       }
 
-      if (typeof document !== 'undefined') {
-        state.previouslyFocusedElement = document.activeElement;
-      }
-
       state.focusTrap = createFocusTrap(element, state.focusTrapOptions);
 
       if (state.isActive) {
@@ -108,19 +103,8 @@ export default setModifierManager(() => {
       }
     },
 
-    destroyModifier({ focusTrap, focusTrapOptions, previouslyFocusedElement }) {
-      // FastBoot guard https://github.com/emberjs/ember.js/issues/17949
-      if (typeof FastBoot !== 'undefined') {
-        return;
-      }
+    destroyModifier({ focusTrap }) {
       focusTrap.deactivate();
-      if (
-        focusTrapOptions.returnFocusOnDeactivate !== false &&
-        previouslyFocusedElement &&
-        previouslyFocusedElement.focus
-      ) {
-        previouslyFocusedElement.focus();
-      }
     }
   };
 }, class FocusTrapModifier {});
