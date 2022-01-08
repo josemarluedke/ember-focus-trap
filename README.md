@@ -23,7 +23,7 @@ Please read the [focus-trap](https://github.com/davidtheclark/focus-trap) docume
 
 ## Compatibility
 
-* Ember.js v3.20 or above
+* Ember.js v3.16 or above (Ember v4 compatible)
 * Ember CLI v3.20 or above
 * Node.js v12 or above
 
