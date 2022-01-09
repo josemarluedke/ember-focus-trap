@@ -13,6 +13,7 @@ module.exports = {
     content: [
       './app/index.html',
       './app/**/*.hbs',
+      '../docs/**/*.md',
       './node_modules/**/*.hbs',
       '../node_modules/**/*.hbs'
     ],
