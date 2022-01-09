@@ -6,10 +6,12 @@
 /tmp/
 
 packages/**/dist/
+site/dist/
 
 # dependencies
 /node_modules/
 /packages/*/node_modules/
+/site/node_modules/
 
 # misc
 /.env*
