@@ -47,7 +47,7 @@ ember install ember-focus-trap
     parts.
   </p>
   <p>
-    <button>Some button</button>
+    <button type="button">Some button</button>
   </p>
 </div>
 ```
@@ -71,7 +71,7 @@ ember install ember-focus-trap
     parts.
   </p>
   <p>
-    <button id="initial-focusee">Some button</button>
+    <button type="button" id="initial-focusee">Some button</button>
   </p>
 </div>
 ```
