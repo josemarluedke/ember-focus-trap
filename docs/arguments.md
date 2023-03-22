@@ -42,6 +42,6 @@ accomplish that by adding `tabindex="-1"`.
 
 Type: Array, optional
 
-If needed, additional elements or containers can be added where focus-trap needs to be applied to. For example, absolutely/fixed-positioned dropdowns or popovers placed within a wormhole/placholder that need to be included in said focus-trap.
+If needed, additional elements or containers can be added where focus-trap needs to be applied to. For example, absolutely/fixed-positioned dropdowns or popovers placed within a wormhole/placeholder that need to be included in said focus-trap.
 
 As mentioned within [focus-trap's documentation](https://github.com/focus-trap/focus-trap#createfocustrapelement-createoptions), the order determines where the focus will go after the last tabbable element of a DOM node/selector is reached.
