@@ -33,10 +33,11 @@ Type: Boolean, optional
 If you would like to initially focus in the element in which the modifier is
 being applied.
 
-**Important:** For the focus in the container to work, you must make it focusable. You can
-accomplish that by adding `tabindex="-1"`.
+**Important:**
 
-<aside>This options has no effect if something is passed in `initialFocus` under `focusTrapOptions`.</aside>
+- For the focus in the container to work, you must make it focusable. You can
+  accomplish that by adding `tabindex="-1"`.
+- This options has no effect if something is passed in `initialFocus` under `focusTrapOptions`.
 
 ## additionalElements
 
