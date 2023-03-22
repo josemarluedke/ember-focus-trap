@@ -18,7 +18,8 @@ export default setModifierManager(() => {
         isActive: true,
         isPaused: false,
         shouldSelfFocus: false,
-        focusTrap: undefined
+        focusTrap: undefined,
+        additionalElements: undefined
       };
     },
 
@@ -31,6 +32,7 @@ export default setModifierManager(() => {
           isPaused,
           shouldSelfFocus,
           focusTrapOptions,
+          additionalElements = [],
           _createFocusTrap
         }
       }
@@ -62,7 +64,10 @@ export default setModifierManager(() => {
         state.focusTrapOptions.returnFocusOnDeactivate = true;
       }
 
-      state.focusTrap = createFocusTrap(element, state.focusTrapOptions);
+      state.focusTrap = createFocusTrap(
+        [element, ...additionalElements],
+        state.focusTrapOptions
+      );
 
       if (state.isActive) {
         state.focusTrap.activate();
