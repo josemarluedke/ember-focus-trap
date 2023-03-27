@@ -54,6 +54,34 @@ module('Integration | Modifier | focus-trap', function (hooks) {
       assert.equal(this.instance.activate.callCount, 1, 'should have called');
     });
 
+    test('activation with additional elements', async function (assert) {
+      await render(
+        hbs`<div
+            data-test
+            {{focus-trap
+              additionalElements=(array "#foo" "#bar")
+              focusTrapOptions=(hash onDeactivate=this.noop)
+              _createFocusTrap=this.fakeFocusTrap
+            }}
+          >
+            <button type="button">Some button</button>
+          </div>`
+      );
+      assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
+
+      assert.ok(
+        this.fakeFocusTrap.calledWithExactly(
+          [find('[data-test]'), '#foo', '#bar'],
+          {
+            onDeactivate: noop,
+            returnFocusOnDeactivate: true
+          }
+        ),
+        'should have called with the element and options'
+      );
+      assert.equal(this.instance.activate.callCount, 1, 'should have called');
+    });
+
     test('activation with initialFocus as selector', async function (assert) {
       await render(
         hbs`<div
