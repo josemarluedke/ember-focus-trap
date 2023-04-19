@@ -31,6 +31,7 @@ export default setModifierManager(() => {
           isPaused,
           shouldSelfFocus,
           focusTrapOptions,
+          additionalElements,
           _createFocusTrap
         }
       }
@@ -62,7 +63,12 @@ export default setModifierManager(() => {
         state.focusTrapOptions.returnFocusOnDeactivate = true;
       }
 
-      state.focusTrap = createFocusTrap(element, state.focusTrapOptions);
+      state.focusTrap = createFocusTrap(
+        typeof additionalElements !== 'undefined'
+          ? [element, ...additionalElements]
+          : element,
+        state.focusTrapOptions
+      );
 
       if (state.isActive) {
         state.focusTrap.activate();

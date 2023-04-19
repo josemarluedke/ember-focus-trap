@@ -39,7 +39,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
               _createFocusTrap=this.fakeFocusTrap
             }}
           >
-            <button>Some button</button>
+            <button type="button">Some button</button>
           </div>`
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
@@ -49,6 +49,34 @@ module('Integration | Modifier | focus-trap', function (hooks) {
           onDeactivate: noop,
           returnFocusOnDeactivate: true
         }),
+        'should have called with the element and options'
+      );
+      assert.equal(this.instance.activate.callCount, 1, 'should have called');
+    });
+
+    test('activation with additional elements', async function (assert) {
+      await render(
+        hbs`<div
+            data-test
+            {{focus-trap
+              additionalElements=(array "#foo" "#bar")
+              focusTrapOptions=(hash onDeactivate=this.noop)
+              _createFocusTrap=this.fakeFocusTrap
+            }}
+          >
+            <button type="button">Some button</button>
+          </div>`
+      );
+      assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
+
+      assert.ok(
+        this.fakeFocusTrap.calledWithExactly(
+          [find('[data-test]'), '#foo', '#bar'],
+          {
+            onDeactivate: noop,
+            returnFocusOnDeactivate: true
+          }
+        ),
         'should have called with the element and options'
       );
       assert.equal(this.instance.activate.callCount, 1, 'should have called');
@@ -66,7 +94,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
               _createFocusTrap=this.fakeFocusTrap
             }}
           >
-            <button id="initial-focusee">Some button</button>
+            <button type="button" id="initial-focusee">Some button</button>
           </div>`
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
@@ -89,7 +117,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
               _createFocusTrap=this.fakeFocusTrap
             }}
           >
-            <button>Some button</button>
+            <button type="button">Some button</button>
           </div>`
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
@@ -113,7 +141,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
               _createFocusTrap=this.fakeFocusTrap
             }}
           >
-            <button>Some button</button>
+            <button type="button">Some button</button>
           </div>`
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
@@ -139,7 +167,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
               _createFocusTrap=this.fakeFocusTrap
             }}
           >
-            <button>Some button</button>
+            <button type="button">Some button</button>
           </div>`
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
@@ -159,7 +187,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
               _createFocusTrap=this.fakeFocusTrap
             }}
           >
-            <button>Some button</button>
+            <button type="button">Some button</button>
           </div>`
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
@@ -182,7 +210,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
               _createFocusTrap=this.fakeFocusTrap
             }}
           >
-            <button>Some button</button>
+            <button type="button">Some button</button>
           </div>`
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
@@ -211,7 +239,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
               _createFocusTrap=this.fakeFocusTrap
             }}
           >
-            <button>Some button</button>
+            <button type="button">Some button</button>
           </div>`
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
@@ -240,7 +268,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
               _createFocusTrap=this.fakeFocusTrap
             }}
           >
-            <button>Some button</button>
+            <button type="button">Some button</button>
           </div>`
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
@@ -277,7 +305,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
               _createFocusTrap=this.fakeFocusTrap
             }}
           >
-            <button>Some button</button>
+            <button type="button">Some button</button>
           </div>`
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
@@ -312,7 +340,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
               _createFocusTrap=this.fakeFocusTrap
             }}
           >
-            <button>Some button</button>
+            <button type="button">Some button</button>
           </div>`
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
@@ -347,7 +375,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
               _createFocusTrap=this.fakeFocusTrap
             }}
           >
-            <button>Some button</button>
+            <button type="button">Some button</button>
           </div>`
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
@@ -372,7 +400,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
               _createFocusTrap=this.fakeFocusTrap
             }}
           >
-            <button>Some button</button>
+            <button type="button">Some button</button>
           </div>`
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
@@ -401,7 +429,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
               _createFocusTrap=this.fakeFocusTrap
             }}
           >
-            <button>Some button</button>
+            <button type="button">Some button</button>
           </div>`
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
@@ -442,7 +470,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
                   _createFocusTrap=this.fakeFocusTrap
                 }}
               >
-                <button>Some button</button>
+                <button type="button">Some button</button>
               </div>
             {{/if}}`
       );
