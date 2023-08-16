@@ -3,6 +3,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, find } from '@ember/test-helpers';
 import sinon from 'sinon';
+import { focusTrap } from 'ember-focus-trap';
 let noop = () => {
   // empty
 };
@@ -30,6 +31,31 @@ module('Integration | Modifier | focus-trap', function (hooks) {
   });
 
   module('installModifier', function () {
+    test('default activation (explicit usage (no global resolver))', async function (assert) {
+      this.setProperties({ focusTrap });
+      await render(
+        hbs`<div
+            data-test
+            {{this.focusTrap
+              focusTrapOptions=(hash onDeactivate=this.noop)
+              _createFocusTrap=this.fakeFocusTrap
+            }}
+          >
+            <button type="button">Some button</button>
+          </div>`
+      );
+      assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
+
+      assert.ok(
+        this.fakeFocusTrap.calledWithExactly(find('[data-test]'), {
+          onDeactivate: noop,
+          returnFocusOnDeactivate: true
+        }),
+        'should have called with the element and options'
+      );
+      assert.equal(this.instance.activate.callCount, 1, 'should have called');
+    });
+
     test('default activation ', async function (assert) {
       await render(
         hbs`<div
