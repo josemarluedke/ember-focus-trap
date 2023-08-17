@@ -19,6 +19,9 @@
     "test": "echo 'Addon does not have tests, run tests in test-app'",
     "prepare": "yarn build"
   },
+  "peerDependencies": {
+    "ember-source": "^4.0.0 || ^5.0.0"
+  },
   "dependencies": {
     "@embroider/addon-shim": "^1.0.0",
     "focus-trap": "^6.7.1"
