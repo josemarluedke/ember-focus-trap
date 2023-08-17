@@ -3,7 +3,7 @@ import { Addon } from '@embroider/addon-dev/rollup';
 
 const addon = new Addon({
   srcDir: 'src',
-  destDir: 'dist'
+  destDir: 'dist',
 });
 
 export default {
@@ -40,6 +40,6 @@ export default {
     addon.keepAssets(['**/*.css']),
 
     // Remove leftover build artifacts when starting a new build.
-    addon.clean()
-  ]
+    addon.clean(),
+  ],
 };
