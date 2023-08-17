@@ -49,6 +49,7 @@
     }
   },
   "exports": {
+    ".": "./dist/index.js",
     "./*": "./dist/*",
     "./addon-main.js": "./addon-main.js"
   }
