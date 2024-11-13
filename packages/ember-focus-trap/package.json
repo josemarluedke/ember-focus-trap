@@ -20,7 +20,7 @@
     "prepare": "yarn build"
   },
   "peerDependencies": {
-    "ember-source": "^4.0.0 || ^5.0.0"
+    "ember-source": ">= 4.0.0"
   },
   "dependencies": {
     "@embroider/addon-shim": "^1.0.0",
