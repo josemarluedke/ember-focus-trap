@@ -1,6 +1,6 @@
 {
   "name": "ember-focus-trap",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A Ember modifier to trap your focus.",
   "keywords": [
     "ember-addon"

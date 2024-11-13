@@ -1,6 +1,6 @@
 {
   "name": "test-app",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "private": true,
   "description": "Small description for test-app goes here",
   "repository": "",
@@ -35,7 +35,7 @@
     "ember-cli-inject-live-reload": "^2.1.0",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-terser": "^4.0.2",
-    "ember-focus-trap": "^1.1.0",
+    "ember-focus-trap": "^1.1.1",
     "ember-load-initializers": "^3.0.1",
     "ember-page-title": "^8.2.3",
     "ember-qunit": "^8.1.1",
