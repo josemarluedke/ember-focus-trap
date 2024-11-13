@@ -14,20 +14,20 @@ jobs:
   test:
     name: Tests
     runs-on: ubuntu-latest
+    env:
+      VOLTA_FEATURE_PNPM: true
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: volta-cli/action@v1
+      - uses: actions/checkout@v4
+      - uses: volta-cli/action@v4
         with:
-          node-version: 14.x
-          yarn-version: 1.x
-      - uses: actions/checkout@v2
+          node-version: 22.x
       - name: Install dependencies
-        run: yarn install
+        run: pnpm install
       - name: Lint JS
-        run: yarn lint:js
+        run: pnpm lint:js
       - name: Test
-        run: yarn test
+        run: pnpm test
 
   try-scenarios:
     name: ${{ matrix.ember-try-scenario }}
@@ -47,16 +47,15 @@ jobs:
           - embroider-optimized
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: volta-cli/action@v1
+      - uses: actions/checkout@v4
+      - uses: wyvox/action-setup-pnpm@v3
         with:
-          node-version: 14.x
-          yarn-version: 1.x
+          node-version: 22
       - name: Install dependencies
-        run: yarn install
+        run: pnpm install
       - name: Test
         env:
           EMBER_TRY_SCENARIO: ${{ matrix.ember-try-scenario }}
-        run: yarn ember try:one $EMBER_TRY_SCENARIO
+        run: pnpm ember try:one $EMBER_TRY_SCENARIO
 
         working-directory: packages/test-app

@@ -17,7 +17,7 @@
     "build": "rollup --config",
     "start": "rollup --config --watch",
     "test": "echo 'Addon does not have tests, run tests in test-app'",
-    "prepare": "yarn build"
+    "prepare": "pnpm build"
   },
   "peerDependencies": {
     "ember-source": ">= 4.0.0"
@@ -32,7 +32,8 @@
     "@embroider/addon-dev": "^1.0.0",
     "@rollup/plugin-babel": "5.3.0",
     "npm-run-all": "4.1.5",
-    "rollup": "2.66.1"
+    "rollup": "2.66.1",
+    "webpack": "^5.90.3"
   },
   "engines": {
     "node": "12.* || >= 14"
