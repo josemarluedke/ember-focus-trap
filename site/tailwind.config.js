@@ -1,5 +1,6 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 const { orange } = require('tailwindcss/colors');
+const { frontile, safelist } = require('@frontile/theme/plugin');
 
 // backdrop-filter backdrop-blur bg-opacity-30
 
@@ -18,7 +19,7 @@ module.exports = {
       '../node_modules/**/*.hbs'
     ],
     options: {
-      safelist: [/^_/, /js-/]
+      safelist: [/^_/, /js-/, ...safelist]
     }
   },
 
@@ -136,25 +137,6 @@ module.exports = {
           ]
         }
       })
-    },
-    frontile: () => {
-      return {
-        overlays: {
-          config: {
-            backdropColor: 'rgba(17,24,39, 0.5)'
-          },
-
-          extend: {
-            overlay: {
-              parts: {
-                backdrop: {
-                  backdropFilter: 'blur(8px)'
-                }
-              }
-            }
-          }
-        }
-      };
     }
   },
   variants: {
@@ -165,8 +147,7 @@ module.exports = {
     }
   },
   plugins: [
+    frontile(),
     require('@tailwindcss/typography'),
-    require('@frontile/core/tailwind'),
-    require('@frontile/overlays/tailwind')
   ]
 };
