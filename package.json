@@ -6,26 +6,30 @@
     "site"
   ],
   "scripts": {
-    "prepare": "yarn workspace ember-focus-trap run prepare",
+    "prepare": "pnpm --filter ember-focus-trap prepare",
     "start": "npm-run-all --parallel start:*",
-    "start:addon": "yarn workspace ember-focus-trap run start",
-    "start:test-app": "yarn workspace test-app run start",
+    "start:addon": "pnpm --filter ember-focus-trap start",
+    "start:test-app": "pnpm --filter test-app start",
     "lint:js": "eslint . --ext .js,.ts",
-    "test": "yarn workspace test-app run test"
+    "test": "pnpm --filter test-app run test"
   },
   "devDependencies": {
     "@underline/eslint-config-ember-typescript": "^0.12.0",
     "@underline/eslint-config-node": "^0.12.0",
     "@underline/eslint-config-typescript": "^0.12.0",
-    "eslint": "^8.6.0",
+    "eslint": "^8.57.1",
     "lerna": "^4.0.0",
     "npm-run-all": "4.1.5",
-    "typescript": "^4.5.5"
+    "typescript": "^4.9.5"
   },
   "dependencies": {
-    "eslint-plugin-qunit": "^7.2.0"
+    "eslint-plugin-qunit": "^7.3.4"
   },
   "resolutions": {
     "@embroider/macros": "^1.0.0"
+  },
+  "volta": {
+    "node": "22.11.0",
+    "pnpm": "9.13.0"
   }
 }
