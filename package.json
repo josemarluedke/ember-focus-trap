@@ -10,7 +10,9 @@
     "start": "npm-run-all --parallel start:*",
     "start:addon": "pnpm --filter ember-focus-trap start",
     "start:test-app": "pnpm --filter test-app start",
-    "lint:js": "eslint . --ext .js,.ts",
+    "format": "pnpm -r --if-present format",
+    "lint": "pnpm -r --if-present lint",
+    "lint:fix": "pnpm -r --if-present lint:fix",
     "test": "pnpm --filter test-app run test"
   },
   "devDependencies": {
@@ -28,8 +30,8 @@
   "resolutions": {
     "@embroider/macros": "^1.0.0"
   },
-  "volta": {
-    "node": "22.11.0",
-    "pnpm": "9.13.0"
-  }
+  "engines": {
+    "node": "22.11.0"
+  },
+  "packageManager": "pnpm@10.5.2+sha512.da9dc28cd3ff40d0592188235ab25d3202add8a207afbedc682220e4a0029ffbff4562102b9e6e46b4e3f9e8bd53e6d05de48544b0c57d4b0179e22c76d1199b"
 }

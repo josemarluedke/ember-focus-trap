@@ -8,109 +8,112 @@ try {
   cap = capabilities('3.13');
 }
 
-export default setModifierManager(() => {
-  return {
-    capabilities: cap,
+export default setModifierManager(
+  () => {
+    return {
+      capabilities: cap,
 
-    createModifier() {
-      return {
-        focusTrapOptions: undefined,
-        isActive: true,
-        isPaused: false,
-        shouldSelfFocus: false,
-        focusTrap: undefined
-      };
-    },
+      createModifier() {
+        return {
+          focusTrapOptions: undefined,
+          isActive: true,
+          isPaused: false,
+          shouldSelfFocus: false,
+          focusTrap: undefined,
+        };
+      },
 
-    installModifier(
-      state,
-      element,
-      {
-        named: {
-          isActive,
-          isPaused,
-          shouldSelfFocus,
-          focusTrapOptions,
-          additionalElements,
-          _createFocusTrap
-        }
-      }
-    ) {
-      // treat the original focusTrapOptions as immutable, so do a shallow copy here
-      state.focusTrapOptions = { ...focusTrapOptions } || {};
-      if (typeof isActive !== 'undefined') {
-        state.isActive = isActive;
-      }
-
-      if (typeof isPaused !== 'undefined') {
-        state.isPaused = isPaused;
-      }
-      if (
-        state.focusTrapOptions &&
-        typeof state.focusTrapOptions.initialFocus === 'undefined' &&
-        shouldSelfFocus
+      installModifier(
+        state,
+        element,
+        {
+          named: {
+            isActive,
+            isPaused,
+            shouldSelfFocus,
+            focusTrapOptions,
+            additionalElements,
+            _createFocusTrap,
+          },
+        },
       ) {
-        state.focusTrapOptions.initialFocus = element;
-      }
+        // treat the original focusTrapOptions as immutable, so do a shallow copy here
+        state.focusTrapOptions = { ...focusTrapOptions };
+        if (typeof isActive !== 'undefined') {
+          state.isActive = isActive;
+        }
 
-      // Private to allow mocking FocusTrap in tests
-      let createFocusTrap = CreateFocusTrap;
-      if (_createFocusTrap) {
-        createFocusTrap = _createFocusTrap;
-      }
+        if (typeof isPaused !== 'undefined') {
+          state.isPaused = isPaused;
+        }
+        if (
+          state.focusTrapOptions &&
+          typeof state.focusTrapOptions.initialFocus === 'undefined' &&
+          shouldSelfFocus
+        ) {
+          state.focusTrapOptions.initialFocus = element;
+        }
 
-      if (state.focusTrapOptions.returnFocusOnDeactivate !== false) {
-        state.focusTrapOptions.returnFocusOnDeactivate = true;
-      }
+        // Private to allow mocking FocusTrap in tests
+        let createFocusTrap = CreateFocusTrap;
+        if (_createFocusTrap) {
+          createFocusTrap = _createFocusTrap;
+        }
 
-      state.focusTrap = createFocusTrap(
-        typeof additionalElements !== 'undefined'
-          ? [element, ...additionalElements]
-          : element,
-        state.focusTrapOptions
-      );
+        if (state.focusTrapOptions.returnFocusOnDeactivate !== false) {
+          state.focusTrapOptions.returnFocusOnDeactivate = true;
+        }
 
-      if (state.isActive) {
-        state.focusTrap.activate();
-      }
+        state.focusTrap = createFocusTrap(
+          typeof additionalElements !== 'undefined'
+            ? [element, ...additionalElements]
+            : element,
+          state.focusTrapOptions,
+        );
 
-      if (state.isPaused) {
-        state.focusTrap.pause();
-      }
-    },
+        if (state.isActive) {
+          state.focusTrap.activate();
+        }
 
-    updateModifier(state, { named: params }) {
-      const focusTrapOptions = params.focusTrapOptions || {};
+        if (state.isPaused) {
+          state.focusTrap.pause();
+        }
+      },
 
-      if (state.isActive && !params.isActive) {
-        const { returnFocusOnDeactivate } = focusTrapOptions;
-        const returnFocus =
-          typeof returnFocusOnDeactivate === 'undefined' ? true : false;
-        state.focusTrap.deactivate({ returnFocus });
-      } else if (!state.isActive && params.isActive) {
-        state.focusTrap.activate();
-      }
+      updateModifier(state, { named: params }) {
+        const focusTrapOptions = params.focusTrapOptions || {};
 
-      if (state.isPaused && !params.isPaused) {
-        state.focusTrap.unpause();
-      } else if (!state.isPaused && params.isPaused) {
-        state.focusTrap.pause();
-      }
+        if (state.isActive && !params.isActive) {
+          const { returnFocusOnDeactivate } = focusTrapOptions;
+          const returnFocus =
+            typeof returnFocusOnDeactivate === 'undefined' ? true : false;
+          state.focusTrap.deactivate({ returnFocus });
+        } else if (!state.isActive && params.isActive) {
+          state.focusTrap.activate();
+        }
 
-      // Update state
-      state.focusTrapOptions = focusTrapOptions;
+        if (state.isPaused && !params.isPaused) {
+          state.focusTrap.unpause();
+        } else if (!state.isPaused && params.isPaused) {
+          state.focusTrap.pause();
+        }
 
-      if (typeof params.isActive !== 'undefined') {
-        state.isActive = params.isActive;
-      }
+        // Update state
+        state.focusTrapOptions = focusTrapOptions;
 
-      if (typeof params.isPaused !== 'undefined') {
-        state.isPaused = params.isPaused;
-      }
-    },
+        if (typeof params.isActive !== 'undefined') {
+          state.isActive = params.isActive;
+        }
 
-    destroyModifier({ focusTrap }) {
-      focusTrap.deactivate();
-    }
-  };
-}, class FocusTrapModifier {});
+        if (typeof params.isPaused !== 'undefined') {
+          state.isPaused = params.isPaused;
+        }
+      },
+
+      destroyModifier({ focusTrap }) {
+        focusTrap.deactivate();
+      },
+    };
+  },
+  class FocusTrapModifier {},
+);
