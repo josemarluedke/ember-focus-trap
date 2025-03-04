@@ -13,7 +13,7 @@
     "format": "pnpm -r --if-present format",
     "lint": "pnpm -r --if-present lint",
     "lint:fix": "pnpm -r --if-present lint:fix",
-    "test": "pnpm --filter test-app run test"
+    "test": "pnpm --filter test-app run test:ember"
   },
   "devDependencies": {
     "@underline/eslint-config-ember-typescript": "^0.12.0",

@@ -67,8 +67,8 @@ export default {
     // Copy Readme and License into published package
     copy({
       targets: [
-        { src: '../README.md', dest: '.' },
-        { src: '../LICENSE.md', dest: '.' },
+        { src: '../../README.md', dest: '.' },
+        { src: '../../LICENSE.md', dest: '.' },
       ],
     }),
   ],
