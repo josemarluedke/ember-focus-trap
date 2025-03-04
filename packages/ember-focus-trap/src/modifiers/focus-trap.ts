@@ -1,11 +1,33 @@
 import { setModifierManager, capabilities } from '@ember/modifier';
 import { createFocusTrap as CreateFocusTrap } from 'focus-trap';
+import type { Options as FocusTrapOptions } from 'focus-trap';
 
-let cap;
+let cap: ReturnType<typeof capabilities>;
 try {
   cap = capabilities('3.22');
 } catch {
+  // @ts-expect-error we support older versions of Ember
   cap = capabilities('3.13');
+}
+
+interface FocusTrapState {
+  focusTrapOptions: FocusTrapOptions;
+  isActive: boolean;
+  isPaused: boolean;
+  shouldSelfFocus: boolean;
+  focusTrap?: ReturnType<typeof CreateFocusTrap>;
+}
+
+interface FocusTrapModifierArgs {
+  isActive?: boolean;
+  isPaused?: boolean;
+  shouldSelfFocus?: boolean;
+  focusTrapOptions?: FocusTrapOptions;
+  additionalElements?: HTMLElement[];
+  /**
+   * Optional custom function to create a focus trap.
+   */
+  _createFocusTrap?: typeof CreateFocusTrap;
 }
 
 export default setModifierManager(
@@ -13,9 +35,9 @@ export default setModifierManager(
     return {
       capabilities: cap,
 
-      createModifier() {
+      createModifier(): FocusTrapState {
         return {
-          focusTrapOptions: undefined,
+          focusTrapOptions: {},
           isActive: true,
           isPaused: false,
           shouldSelfFocus: false,
@@ -24,25 +46,24 @@ export default setModifierManager(
       },
 
       installModifier(
-        state,
-        element,
-        {
-          named: {
-            isActive,
-            isPaused,
-            shouldSelfFocus,
-            focusTrapOptions,
-            additionalElements,
-            _createFocusTrap,
-          },
-        },
-      ) {
-        // treat the original focusTrapOptions as immutable, so do a shallow copy here
+        state: FocusTrapState,
+        element: HTMLElement,
+        { named }: { named: FocusTrapModifierArgs },
+      ): void {
+        const {
+          isActive,
+          isPaused,
+          shouldSelfFocus,
+          focusTrapOptions,
+          additionalElements,
+          _createFocusTrap,
+        } = named;
+
+        // Create a shallow copy of the options.
         state.focusTrapOptions = { ...focusTrapOptions };
         if (typeof isActive !== 'undefined') {
           state.isActive = isActive;
         }
-
         if (typeof isPaused !== 'undefined') {
           state.isPaused = isPaused;
         }
@@ -54,12 +75,13 @@ export default setModifierManager(
           state.focusTrapOptions.initialFocus = element;
         }
 
-        // Private to allow mocking FocusTrap in tests
+        // Allow a custom focus trap creation function (e.g., for testing).
         let createFocusTrap = CreateFocusTrap;
         if (_createFocusTrap) {
           createFocusTrap = _createFocusTrap;
         }
 
+        // Ensure returnFocusOnDeactivate is true unless explicitly set to false.
         if (state.focusTrapOptions.returnFocusOnDeactivate !== false) {
           state.focusTrapOptions.returnFocusOnDeactivate = true;
         }
@@ -74,44 +96,47 @@ export default setModifierManager(
         if (state.isActive) {
           state.focusTrap.activate();
         }
-
         if (state.isPaused) {
           state.focusTrap.pause();
         }
       },
 
-      updateModifier(state, { named: params }) {
-        const focusTrapOptions = params.focusTrapOptions || {};
+      updateModifier(
+        state: FocusTrapState,
+        { named: params }: { named: FocusTrapModifierArgs },
+      ): void {
+        const focusTrapOptions: FocusTrapOptions =
+          params.focusTrapOptions || {};
 
         if (state.isActive && !params.isActive) {
           const { returnFocusOnDeactivate } = focusTrapOptions;
           const returnFocus =
             typeof returnFocusOnDeactivate === 'undefined' ? true : false;
-          state.focusTrap.deactivate({ returnFocus });
+          state.focusTrap?.deactivate({ returnFocus });
         } else if (!state.isActive && params.isActive) {
-          state.focusTrap.activate();
+          state.focusTrap?.activate();
         }
 
         if (state.isPaused && !params.isPaused) {
-          state.focusTrap.unpause();
+          state.focusTrap?.unpause();
         } else if (!state.isPaused && params.isPaused) {
-          state.focusTrap.pause();
+          state.focusTrap?.pause();
         }
 
-        // Update state
+        // Update state with new options.
         state.focusTrapOptions = focusTrapOptions;
-
         if (typeof params.isActive !== 'undefined') {
           state.isActive = params.isActive;
         }
-
         if (typeof params.isPaused !== 'undefined') {
           state.isPaused = params.isPaused;
         }
       },
 
-      destroyModifier({ focusTrap }) {
-        focusTrap.deactivate();
+      destroyModifier(state: FocusTrapState): void {
+        if (state.focusTrap) {
+          state.focusTrap.deactivate();
+        }
       },
     };
   },
