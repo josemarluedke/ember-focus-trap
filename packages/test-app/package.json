@@ -6,6 +6,10 @@
   "repository": "",
   "license": "MIT",
   "author": "",
+  "exports": {
+    "./tests/*": "./tests/*",
+    "./*": "./app/*"
+  },
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -34,6 +38,14 @@
     "@eslint/js": "^9.21.0",
     "@glimmer/component": "^2.0.0",
     "@glimmer/tracking": "^1.1.2",
+    "@glint/core": "^1.5.1",
+    "@glint/environment-ember-loose": "^1.5.1",
+    "@glint/environment-ember-template-imports": "^1.5.1",
+    "@tsconfig/ember": "^3.0.8",
+    "@types/qunit": "^2.19.12",
+    "@types/sinon": "^17.0.3",
+    "@typescript-eslint/eslint-plugin": "^8.19.1",
+    "@typescript-eslint/parser": "^8.20.0",
     "broccoli-asset-rev": "^3.0.0",
     "concurrently": "^9.1.2",
     "ember-auto-import": "^2.10.0",
@@ -76,6 +88,8 @@
     "stylelint-config-standard": "^37.0.0",
     "stylelint-prettier": "^5.0.3",
     "tracked-built-ins": "^4.0.0",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.20.0",
     "webpack": "^5.98.0"
   },
   "engines": {
