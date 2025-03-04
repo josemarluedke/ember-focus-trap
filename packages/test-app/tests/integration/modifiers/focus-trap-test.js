@@ -16,7 +16,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
       activate: sinon.fake(),
       deactivate: sinon.fake(),
       pause: sinon.fake(),
-      unpause: sinon.fake()
+      unpause: sinon.fake(),
     };
 
     const fakeFocusTrap = sinon.fake.returns(instance);
@@ -42,16 +42,16 @@ module('Integration | Modifier | focus-trap', function (hooks) {
             }}
           >
             <button type="button">Some button</button>
-          </div>`
+          </div>`,
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
 
       assert.ok(
         this.fakeFocusTrap.calledWithExactly(find('[data-test]'), {
           onDeactivate: noop,
-          returnFocusOnDeactivate: true
+          returnFocusOnDeactivate: true,
         }),
-        'should have called with the element and options'
+        'should have called with the element and options',
       );
       assert.equal(this.instance.activate.callCount, 1, 'should have called');
     });
@@ -66,16 +66,16 @@ module('Integration | Modifier | focus-trap', function (hooks) {
             }}
           >
             <button type="button">Some button</button>
-          </div>`
+          </div>`,
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
 
       assert.ok(
         this.fakeFocusTrap.calledWithExactly(find('[data-test]'), {
           onDeactivate: noop,
-          returnFocusOnDeactivate: true
+          returnFocusOnDeactivate: true,
         }),
-        'should have called with the element and options'
+        'should have called with the element and options',
       );
       assert.equal(this.instance.activate.callCount, 1, 'should have called');
     });
@@ -91,7 +91,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
             }}
           >
             <button type="button">Some button</button>
-          </div>`
+          </div>`,
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
 
@@ -100,10 +100,10 @@ module('Integration | Modifier | focus-trap', function (hooks) {
           [find('[data-test]'), '#foo', '#bar'],
           {
             onDeactivate: noop,
-            returnFocusOnDeactivate: true
-          }
+            returnFocusOnDeactivate: true,
+          },
         ),
-        'should have called with the element and options'
+        'should have called with the element and options',
       );
       assert.equal(this.instance.activate.callCount, 1, 'should have called');
     });
@@ -121,16 +121,16 @@ module('Integration | Modifier | focus-trap', function (hooks) {
             }}
           >
             <button type="button" id="initial-focusee">Some button</button>
-          </div>`
+          </div>`,
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
       assert.ok(
         this.fakeFocusTrap.calledWithExactly(find('[data-test]'), {
           onDeactivate: noop,
           initialFocus: '#initial-focusee',
-          returnFocusOnDeactivate: true
+          returnFocusOnDeactivate: true,
         }),
-        'should have called with the element and options'
+        'should have called with the element and options',
       );
     });
 
@@ -144,16 +144,16 @@ module('Integration | Modifier | focus-trap', function (hooks) {
             }}
           >
             <button type="button">Some button</button>
-          </div>`
+          </div>`,
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
 
       assert.ok(
         this.fakeFocusTrap.calledWithExactly(find('[data-test]'), {
           initialFocus: find('[data-test]'),
-          returnFocusOnDeactivate: true
+          returnFocusOnDeactivate: true,
         }),
-        'should have called with the element and options'
+        'should have called with the element and options',
       );
       assert.equal(this.instance.activate.callCount, 1, 'should have called');
     });
@@ -168,19 +168,19 @@ module('Integration | Modifier | focus-trap', function (hooks) {
             }}
           >
             <button type="button">Some button</button>
-          </div>`
+          </div>`,
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
       assert.ok(
         this.fakeFocusTrap.calledWithExactly(find('[data-test]'), {
-          returnFocusOnDeactivate: true
+          returnFocusOnDeactivate: true,
         }),
-        'should have called with the element and options'
+        'should have called with the element and options',
       );
       assert.equal(
         this.instance.activate.callCount,
         0,
-        'should not have called'
+        'should not have called',
       );
     });
 
@@ -194,13 +194,13 @@ module('Integration | Modifier | focus-trap', function (hooks) {
             }}
           >
             <button type="button">Some button</button>
-          </div>`
+          </div>`,
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
       assert.equal(
         this.instance.activate.callCount,
         1,
-        'should have called activate'
+        'should have called activate',
       );
     });
 
@@ -214,13 +214,13 @@ module('Integration | Modifier | focus-trap', function (hooks) {
             }}
           >
             <button type="button">Some button</button>
-          </div>`
+          </div>`,
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
       assert.equal(
         this.instance.pause.callCount,
         1,
-        'should have called activate'
+        'should have called activate',
       );
     });
   });
@@ -237,13 +237,13 @@ module('Integration | Modifier | focus-trap', function (hooks) {
             }}
           >
             <button type="button">Some button</button>
-          </div>`
+          </div>`,
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
       assert.equal(
         this.instance.activate.callCount,
         0,
-        'should not have called'
+        'should not have called',
       );
 
       this.set('isActive', true);
@@ -251,7 +251,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
       assert.equal(
         this.instance.activate.callCount,
         1,
-        'should have called activate'
+        'should have called activate',
       );
     });
 
@@ -266,13 +266,13 @@ module('Integration | Modifier | focus-trap', function (hooks) {
             }}
           >
             <button type="button">Some button</button>
-          </div>`
+          </div>`,
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
       assert.equal(
         this.instance.deactivate.callCount,
         0,
-        'should not have called diactive'
+        'should not have called diactive',
       );
 
       this.set('isActive', false);
@@ -280,7 +280,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
       assert.equal(
         this.instance.deactivate.callCount,
         1,
-        'should have called diactive'
+        'should have called diactive',
       );
     });
 
@@ -295,13 +295,13 @@ module('Integration | Modifier | focus-trap', function (hooks) {
             }}
           >
             <button type="button">Some button</button>
-          </div>`
+          </div>`,
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
       assert.equal(
         this.instance.deactivate.callCount,
         0,
-        'should not have called deactivate'
+        'should not have called deactivate',
       );
 
       this.set('isActive', false);
@@ -309,7 +309,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
       assert.equal(
         this.instance.deactivate.callCount,
         1,
-        'should have called deactivate'
+        'should have called deactivate',
       );
 
       this.set('isActive', true);
@@ -317,7 +317,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
       assert.equal(
         this.instance.activate.callCount,
         2,
-        'should have called activate'
+        'should have called activate',
       );
     });
 
@@ -332,26 +332,26 @@ module('Integration | Modifier | focus-trap', function (hooks) {
             }}
           >
             <button type="button">Some button</button>
-          </div>`
+          </div>`,
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
       assert.ok(
         this.fakeFocusTrap.calledWithExactly(find('[data-test]'), {
-          returnFocusOnDeactivate: true
+          returnFocusOnDeactivate: true,
         }),
-        'should have called with the element and options'
+        'should have called with the element and options',
       );
       assert.equal(
         this.instance.deactivate.callCount,
         0,
-        'should not have called diactive'
+        'should not have called diactive',
       );
 
       this.set('isActive', false);
 
       assert.ok(
         this.instance.deactivate.calledWithExactly({ returnFocus: true }),
-        'should have called diactive with options'
+        'should have called diactive with options',
       );
     });
 
@@ -367,26 +367,26 @@ module('Integration | Modifier | focus-trap', function (hooks) {
             }}
           >
             <button type="button">Some button</button>
-          </div>`
+          </div>`,
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
       assert.ok(
         this.fakeFocusTrap.calledWithExactly(find('[data-test]'), {
-          returnFocusOnDeactivate: false
+          returnFocusOnDeactivate: false,
         }),
-        'should have called with the element and options'
+        'should have called with the element and options',
       );
       assert.equal(
         this.instance.deactivate.callCount,
         0,
-        'should not have called diactive'
+        'should not have called diactive',
       );
 
       this.set('isActive', false);
 
       assert.ok(
         this.instance.deactivate.calledWithExactly({ returnFocus: false }),
-        'should have called diactive with options'
+        'should have called diactive with options',
       );
     });
 
@@ -402,7 +402,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
             }}
           >
             <button type="button">Some button</button>
-          </div>`
+          </div>`,
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
       assert.equal(this.instance.pause.callCount, 0, 'should not have called');
@@ -412,7 +412,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
       assert.equal(
         this.instance.pause.callCount,
         1,
-        'should have called pause'
+        'should have called pause',
       );
     });
 
@@ -427,13 +427,13 @@ module('Integration | Modifier | focus-trap', function (hooks) {
             }}
           >
             <button type="button">Some button</button>
-          </div>`
+          </div>`,
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
       assert.equal(
         this.instance.unpause.callCount,
         0,
-        'should not have called unpause'
+        'should not have called unpause',
       );
 
       this.set('isPaused', false);
@@ -441,7 +441,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
       assert.equal(
         this.instance.unpause.callCount,
         1,
-        'should have called unpause'
+        'should have called unpause',
       );
     });
 
@@ -456,13 +456,13 @@ module('Integration | Modifier | focus-trap', function (hooks) {
             }}
           >
             <button type="button">Some button</button>
-          </div>`
+          </div>`,
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
       assert.equal(
         this.instance.unpause.callCount,
         0,
-        'should not have called unpause'
+        'should not have called unpause',
       );
 
       this.set('isPaused', false);
@@ -470,7 +470,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
       assert.equal(
         this.instance.unpause.callCount,
         1,
-        'should have called unpause'
+        'should have called unpause',
       );
 
       this.set('isPaused', true);
@@ -478,7 +478,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
       assert.equal(
         this.instance.pause.callCount,
         2,
-        'should not have called pause'
+        'should not have called pause',
       );
     });
   });
@@ -498,13 +498,13 @@ module('Integration | Modifier | focus-trap', function (hooks) {
               >
                 <button type="button">Some button</button>
               </div>
-            {{/if}}`
+            {{/if}}`,
       );
       assert.equal(this.fakeFocusTrap.callCount, 1, 'should have called once');
       assert.equal(
         this.instance.deactivate.callCount,
         0,
-        'should not have called deactivate'
+        'should not have called deactivate',
       );
 
       this.set('isEnabled', false);
@@ -512,7 +512,7 @@ module('Integration | Modifier | focus-trap', function (hooks) {
       assert.equal(
         this.instance.deactivate.callCount,
         1,
-        'should have called deactivate'
+        'should have called deactivate',
       );
     });
   });

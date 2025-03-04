@@ -19,13 +19,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: volta-cli/action@v4
-        with:
-          node-version: 22.x
+      - uses: wyvox/action-setup-pnpm@v3
       - name: Install dependencies
         run: pnpm install
-      - name: Lint JS
-        run: pnpm lint:js
+      - name: Lint
+        run: pnpm lint
       - name: Test
         run: pnpm test
 
@@ -37,20 +35,17 @@ jobs:
       fail-fast: true
       matrix:
         ember-try-scenario:
-          - ember-lts-3.16
-          - ember-lts-3.20
+          - ember-lts-4.12
+          - ember-lts-5.4
           - ember-release
           - ember-beta
           - ember-canary
-          - ember-classic
           - embroider-safe
           - embroider-optimized
 
     steps:
       - uses: actions/checkout@v4
       - uses: wyvox/action-setup-pnpm@v3
-        with:
-          node-version: 22
       - name: Install dependencies
         run: pnpm install
       - name: Test
