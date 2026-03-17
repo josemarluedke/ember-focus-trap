@@ -21,4 +21,50 @@ you can't tab to elements out of the box.
 
 > When a focus trap is active, the box will be highlighted.
 
-<Demo::Example1 />
+```gts component
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { on } from '@ember/modifier';
+import { hash } from '@ember/helper';
+import { focusTrap } from 'ember-focus-trap';
+
+export default class Demo extends Component {
+  @tracked isActive = false;
+
+  activate = () => {
+    this.isActive = true;
+  };
+
+  deactivate = () => {
+    this.isActive = false;
+  };
+
+  <template>
+    <div class="my-4">
+      <button type="button" {{on "click" this.activate}} class="button">
+        Activate trap
+      </button>
+    </div>
+
+    <div
+      class="trap {{if this.isActive 'is-active'}}"
+      {{focusTrap
+        isActive=this.isActive
+        focusTrapOptions=(hash escapeDeactivates=false)
+      }}
+    >
+      <p class="pb-4">
+        Here is a focus trap
+        <a href="javascript:void(0)">with</a>
+        <a href="javascript:void(0)">some</a>
+        <a href="javascript:void(0)">focusable</a>
+        parts.
+      </p>
+
+      <button type="button" {{on "click" this.deactivate}} class="button">
+        Deactivate trap
+      </button>
+    </div>
+  </template>
+}
+```

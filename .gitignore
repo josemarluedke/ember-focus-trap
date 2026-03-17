@@ -1,31 +1,30 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
+# OS
 .DS_Store
 
+# environment (secrets only)
+.env.local
+.env.*.local
+
 # compiled output
-/dist/
-/tmp/
+dist/
+dist-tests/
+declarations/
 
-packages/**/dist/
+# from scenarios
+tmp/
+config/optional-features.json
+ember-cli-build.cjs
+
+# npm/pnpm/yarn pack output
+*.tgz
+
+# deps & caches
+node_modules/
+.eslintcache
+.prettiercache
+
+# legacy (keep for site/)
 site/dist/
-
-# dependencies
-/node_modules/
-/packages/*/node_modules/
-/site/node_modules/
-
-# misc
-/.env*
-/.pnp*
-/.sass-cache
-/.eslintcache
-/connect.lock
-/coverage/
-/libpeerconnection.log
-/npm-debug.log*
-/testem.log
-/yarn-error.log
-
-# ember-try
-/.node_modules.ember-try/
-/bower.json.ember-try
+site/node_modules/
+packages/
 /package.json.ember-try

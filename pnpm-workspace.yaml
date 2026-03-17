@@ -1,3 +1,26 @@
+# Docs: https://pnpm.io/settings
+# https://github.com/emberjs/rfcs/pull/907
+
 packages:
-  - packages/*
+  - .
   - site
+
+# we don't want addons to be bad citizens of the ecosystem
+autoInstallPeers: false
+
+# we want true isolation,
+# if a dependency is not declared, we want an error
+resolvePeersFromWorkspaceRoot: false
+
+# Less strict, but required for tooling to not barf on duplicate peer trees
+dedupePeerDependents: true
+
+# Required for ember-source to be resolvable by addons
+publicHoistPattern:
+  - ember-source
+
+# Use highest resolution like npm/yarn default
+resolutionMode: highest
+
+# Always verify deps before running any scripts
+verifyDepsBeforeRun: install

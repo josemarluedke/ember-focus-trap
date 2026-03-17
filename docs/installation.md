@@ -4,9 +4,20 @@ order: 2
 
 # Installation
 
-This is just a regular Ember addon, so you can just install your way into focus
-trap.
+Install with your preferred package manager:
 
+```bash
+pnpm add ember-focus-trap
 ```
-ember install ember-focus-trap
+
+or
+
+```bash
+npm install ember-focus-trap
+```
+
+Then import and use the modifier in your components:
+
+```js
+import { focusTrap } from 'ember-focus-trap';
 ```

@@ -1,0 +1,85 @@
+/**
+* See: https://vite.dev/guide/features.html#css
+*      for features beyond normal CSS that are available to you.
+*
+* This CSS is meant for the demo-app only, and will not be included in the published assets for this library.
+*/
+
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  max-width: 720px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  color: #1a1a1a;
+}
+
+h1 {
+  border-bottom: 2px solid #e5e5e5;
+  padding-bottom: 0.5rem;
+}
+
+section {
+  margin: 2rem 0;
+}
+
+h2 {
+  margin-bottom: 0.25rem;
+}
+
+section > p {
+  color: #666;
+  margin-bottom: 0.75rem;
+}
+
+code {
+  background: #f0f0f0;
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+button {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  margin-right: 0.25rem;
+}
+
+button:hover:not(:disabled) {
+  background: #f5f5f5;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+a {
+  color: #0066cc;
+  margin-right: 0.5rem;
+}
+
+.trap {
+  border: 2px dashed #ccc;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-top: 0.75rem;
+  transition:
+    border-color 0.2s,
+    background-color 0.2s;
+}
+
+.trap.is-active {
+  border-color: #0066cc;
+  background: #f0f7ff;
+}
+
+.trap.is-paused {
+  border-color: #f59e0b;
+  background: #fffbeb;
+}

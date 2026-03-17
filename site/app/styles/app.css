@@ -1,14 +1,30 @@
-/* purgecss start ignore */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
+@import "tailwindcss";
+@plugin '@tailwindcss/typography';
 
-/* purgecss end ignore */
+@custom-variant dark (&:is(.dark *));
 
-@import 'tailwindcss/utilities';
+@theme {
+  --font-family-sans: Inter, system-ui, sans-serif;
 
-/* purgecss start ignore */
-@import './highlight.css';
-@import './docfy-demo.css';
+  --color-primary-50: #fff7ed;
+  --color-primary-100: #ffedd5;
+  --color-primary-200: #fed7aa;
+  --color-primary-300: #fdba74;
+  --color-primary-400: #fb923c;
+  --color-primary-500: #f97316;
+  --color-primary-600: #ea580c;
+  --color-primary-700: #c2410c;
+  --color-primary-800: #9a3412;
+  --color-primary-900: #7c2d12;
+  --color-primary-950: #431407;
+
+  --color-gray-1000: #12161f;
+
+  --max-height-(screen-16): calc(100vh - 4rem);
+}
+
+@import "./highlight.css";
+@import "./docfy-demo.css";
 
 .remark-code-title {
   @apply py-2 px-4 bg-gray-900 border-b border-gray-800 text-white rounded-t-lg mt-5 text-sm;
@@ -20,17 +36,16 @@
 
 .prose h2,
 .prose h3,
-.prose h4,
-.docfy-demo__description__header__title {
+.prose h4 {
   & > a {
     @apply ml-6;
 
     &::before {
-      content: '#';
-      @apply text-primary-600 dark:text-primary-400 -ml-6 pr-2 absolute opacity-100;
+      content: "#";
+      @apply text-primary-600 -ml-6 pr-2 absolute opacity-100;
     }
 
-    @screen lg {
+    @media (width >= 1024px) {
       @apply ml-0;
 
       &::before {
@@ -51,7 +66,9 @@
   padding: 0.65rem 1.2rem;
   border: 0.0625rem solid #3d4852;
   border-radius: 0.25rem;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 4px 8px 0 rgba(0, 0, 0, 0.12),
+    0 2px 4px 0 rgba(0, 0, 0, 0.08);
 
   &:focus {
     outline: 5px solid rgba(255, 215, 35, 0.6);
@@ -79,5 +96,3 @@
     border-radius: 0.25rem;
   }
 }
-
-/* purgecss end ignore */

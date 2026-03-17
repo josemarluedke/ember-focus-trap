@@ -23,57 +23,74 @@ Please read the [focus-trap](https://github.com/focus-trap/focus-trap) documenta
 
 ## Compatibility
 
-* Ember.js v4.16 or above (Ember v4 compatible)
-* Ember CLI v4.12 or above
-* Node.js v12 or above
+* Ember.js v4.16 or above
+* Embroider or ember-auto-import v2
+* Node.js v20 or above
 
 ## Installation
 
+```bash
+pnpm add ember-focus-trap
 ```
-ember install ember-focus-trap
+
+or
+
+```bash
+npm install ember-focus-trap
 ```
 
 ## Usage
 
 [See demos and read the documentation here](https://josemarluedke.github.io/ember-focus-trap).
 
-```hbs
-<div {{focus-trap}}>
-  <p>
-    Here is a focus trap
-    <a href="#">with</a>
-    <a href="#">some</a>
-    <a href="#">focusable</a>
-    parts.
-  </p>
-  <p>
-    <button type="button">Some button</button>
-  </p>
-</div>
+Import the modifier and use it in your components:
+
+```gts
+import { focusTrap } from 'ember-focus-trap';
+
+<template>
+  <div {{focusTrap}}>
+    <p>
+      Here is a focus trap
+      <a href="#">with</a>
+      <a href="#">some</a>
+      <a href="#">focusable</a>
+      parts.
+    </p>
+    <p>
+      <button type="button">Some button</button>
+    </p>
+  </div>
+</template>
 ```
 
 ### With Focus Trap Options
 
-```hbs
-<div
-  {{focus-trap
-    focusTrapOptions=(hash
-      onDeactivate=(action this.myFunction)
-      initialFocus="#initial-focusee"
-    )
-  }}
->
-  <p>
-    Here is a focus trap
-    <a href="#">with</a>
-    <a href="#">some</a>
-    <a href="#">focusable</a>
-    parts.
-  </p>
-  <p>
-    <button type="button" id="initial-focusee">Some button</button>
-  </p>
-</div>
+```gts
+import { focusTrap } from 'ember-focus-trap';
+import { hash } from '@ember/helper';
+
+<template>
+  <div
+    {{focusTrap
+      focusTrapOptions=(hash
+        onDeactivate=@onDeactivate
+        initialFocus="#initial-focusee"
+      )
+    }}
+  >
+    <p>
+      Here is a focus trap
+      <a href="#">with</a>
+      <a href="#">some</a>
+      <a href="#">focusable</a>
+      parts.
+    </p>
+    <p>
+      <button type="button" id="initial-focusee">Some button</button>
+    </p>
+  </div>
+</template>
 ```
 
 ## Contributing
